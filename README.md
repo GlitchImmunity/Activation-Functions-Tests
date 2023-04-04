@@ -6,7 +6,7 @@ Here are some tests I'm doing with activation functions and neural network archi
 
 ### PGLU
 This module means Prior Gated Linear Unit and is related to GLU. It differs from GLU because of the two following reasons:
-- 1 It uses the input into a convolution block as the gate for the output (instead of the output itself). This keeps the spatial dimensions of the output intact.
+- 1) It uses the input into a convolution block as the gate for the output (instead of the output itself). This keeps the spatial dimensions of the output intact.
 - 2) The gate acts as a ReLU (GLU just multiplies the gates).
 
 ### OGLU
