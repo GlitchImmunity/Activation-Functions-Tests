@@ -6,21 +6,21 @@ Here are some tests I'm doing with activation functions and neural network archi
 
 ### PGLU
 This module means Prior Gated Linear Unit and is related to GLU. It differs from GLU because of the two following reasons:
-    1) It uses the input into a convolution block as the gate for the output (instead of the output itself). This keeps the spatial dimensions of the output intact.
-    2) The gate acts as a ReLU (GLU just multiplies the gates).
+- 1 It uses the input into a convolution block as the gate for the output (instead of the output itself). This keeps the spatial dimensions of the output intact.
+- 2) The gate acts as a ReLU (GLU just multiplies the gates).
 
 ### OGLU
 This module means Output Gated Linear Unit and is related to GLU. It differs from GLU because of the two following reasons:
-    1) It does not split the output of a convolutional block in half
-    2) The gate acts as a ReLU (GLU just multiplies the gates).
+ - 1) It does not split the output of a convolutional block in half
+ - 2) The gate acts as a ReLU (GLU just multiplies the gates).
 
 ### APGLU
 This module means Altered Gated Linear Unit and is related to GLU. It differs from GLU because of the two following reasons:
-    1) It uses the input into a convolution block as the gate for the output (instead of the output itself). This keeps the spatial dimensions of the output intact.
+ - 1) It uses the input into a convolution block as the gate for the output (instead of the output itself). This keeps the spatial dimensions of the output intact.
 
 ### AOGLU
 This module means Altered Output Gated Linear Unit and is related to GLU. It differs from GLU because of the two following reasons:
-    1) It does not split the output of a convolutional block in half
+- 1) It does not split the output of a convolutional block in half
 
 ## Experiment 1
 I followed the architecture in CReLU's paper [(5x5,16),(5x5,32),(3x3,32)]. The results aren't the best, but should still show the difference in performance for each activation function.
@@ -64,9 +64,9 @@ Same as Experiment 1.
 
 ### Results
 - ReLU:     76.10
-- CReLU:    
+- CReLU:    77.86
 - PGLU:     69.82
-- OGLU:     
+- OGLU:     67.95
 - APGLU:    
 - AOGLU:   
 
