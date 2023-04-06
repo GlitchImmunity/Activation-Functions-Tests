@@ -67,12 +67,42 @@ Same as Experiment 1.
 - CReLU:    77.86
 - PGLU:     69.82
 - OGLU:     67.95
-- APGLU:    
-- AOGLU:   
+- APGLU:    76.51
+- AOGLU:    75.78
+
 
 
 ## Experiment 3
+Upon inspection of the validation loss history, there may still be improvements
+
+### Parameters
+- lr: 3e-4 w/ 0.994 exponential decay
+- ADAM w/ WD 1e-5
+- 384 epochs of training
+- only max value of validation accuracy considered
+- gradients accumulated to cover entire batch
+- seed 42
+
+## Architecture
+Same as Experiment 2
+
+### Results
+- ReLU:     
+- CReLU:    
+- APGLU:    
+- AOGLU:    
+
+
+
+## Experiment 4
 TODO: Increase maxpool to fit huge jump in filter size (so accommodate CReLU)
+
+
+
+## Experiment 5
+TODO: Increase convlution layers in gated units
+
+
 
 # TODO
  - Reformat code to put net() and activation functions in separate .py file
