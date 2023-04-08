@@ -23,57 +23,6 @@ This module means Altered Output Gated Linear Unit and is related to GLU. It dif
 - 1) It does not split the output of a convolutional block in half
 
 ## Experiment 1
-I followed the architecture in CReLU's paper [(5x5,16),(5x5,32),(3x3,32)]. The results aren't the best, but should still show the difference in performance for each activation function.
-
-### Parameters
-- lr: 3e-4
-- ADAM
-- 256 epochs of training
-- only max value of validation accuracy considered
-- gradients accumulated to cover entire batch
-- seed 42
-
-### General Architecture
-- conv(5x5, 16), 2d batchnorm, activation, maxpool(2x2)
-- conv(5x5, 32), 2d batchnorm, activation, maxpool(2x2)
-- conv(3x3, 32), 2d batchnorm, activation, maxpool(2x2)
-- linear 10, dropout 0.2
-
-### Results
-- ReLU:     60.22
-- CReLU:    65.09
-- PGLU:     51.06
-- OGLU:     49.36
-- APGLU:    61.14
-- AOGLU:    58.82
-
-
-
-## Experiment 2
-I will use a more conventional convolutional network. This will be biased to fit ReLU better. The same activation functions in Experiment 1 were tested.
-
-### Parameters
-Same as Experiment 1.
-
-### General Architecture
-- conv(5x5, 32, pad=2), maxpool(2x2), 2d batchnorm, activation, dropout(0.4)
-- conv(5x5, 64, pad=2), maxpool(2x2), 2d batchnorm, activation, dropout(0.4)
-- conv(3x3, 128, pad=1), maxpool(2x2), 2d batchnorm, activation, dropout(0.4)
-- conv(3x3, 256, pad=1), maxpool(2x2), 2d batchnorm, activation, dropout(0.4)
-- linear(10)
-
-### Results
-- ReLU:     76.10
-- CReLU:    77.86
-- PGLU:     69.82
-- OGLU:     67.95
-- APGLU:    76.51
-- AOGLU:    75.78
-
-
-
-## Experiment 3
-Upon inspection of the validation loss history, there may still be improvements
 
 ### Parameters
 - lr: 3e-4 w/ 0.994 exponential decay
@@ -83,23 +32,29 @@ Upon inspection of the validation loss history, there may still be improvements
 - gradients accumulated to cover entire batch
 - seed 42
 
-## Architecture
-Same as Experiment 2
+### General Architecture
+- conv(5x5, 32, pad=2), maxpool(2x2), 2d batchnorm, activation, dropout(0.1)
+- conv(5x5, 64, pad=2), maxpool(2x2), 2d batchnorm, activation, dropout(0.1)
+- conv(3x3, 128, pad=1), maxpool(2x2), 2d batchnorm, activation, dropout(0.1)
+- conv(3x3, 256, pad=1), maxpool(2x2), 2d batchnorm, activation, dropout(0.1)
+- linear(10)
 
 ### Results
-- ReLU:     
-- CReLU:    
-- APGLU:    
-- AOGLU:    
+- ReLU:     80.66
+- CReLU:    81.20
+- PGLU:     
+- OGLU:     
+- APGLU:    79.82
+- AOGLU:    79.00
 
 
 
-## Experiment 4
+## Experiment 2
 TODO: Increase maxpool to fit huge jump in filter size (so accommodate CReLU)
 
 
 
-## Experiment 5
+## Experiment 3
 TODO: Increase convlution layers in gated units
 
 
